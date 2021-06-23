@@ -1,0 +1,251 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/13/2021 12:46:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BMH2-C-0006X"
+  DTS:CreatorName="APAC\TIA4KOR"
+  DTS:DTSID="{7F227219-BDF1-4D44-A1A0-E7DB1E2808D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{D1DEAC63-D3B9-49D2-BEE2-115330743C69}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BANI-C-0043W.DataLineageDb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1151BACC-9D52-411B-9E74-CCC749096DBF}"
+      DTS:ObjectName="BANI-C-0043W.DataLineageDb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BANI-C-0043W;Initial Catalog=DataLineageDb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BMH2-C-0006X.DataLineageDb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3B66AFCF-35AE-444A-ADB7-ECFF898646BB}"
+      DTS:ObjectName="BMH2-C-0006X.DataLineageDb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BANI-C-0043W;Initial Catalog=DataLineageDb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[c. CN_SMTP_Status]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{30318E61-8544-4772-9DAF-94A58EC7C0BD}"
+      DTS:ObjectName="c. CN_SMTP_Status">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=RB-SMTP-INT.BOSCH.COM;UseWindowsAuthentication=True;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Email.docx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5499B139-26A7-4A06-860E-6DC12C85B600}"
+      DTS:ObjectName="Email.docx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\TIA4KOR\Desktop\Export\Email.docx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Email.html]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{650EE0C8-EDE1-47F5-893C-37555E691E36}"
+      DTS:ObjectName="Email.html">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\TIA4KOR\Desktop\Export\Email.html" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Email.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{4A35A1CD-80EE-4311-A2BF-FCBEEA961458}"
+      DTS:ObjectName="Email.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\GNI4KOR\Downloads\Email.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E52A1B89-A198-4129-8480-1F30771944F7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Emailid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D18CC11-6252-43B2-A747-A8459F3E3173}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rows">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B728133D-98EE-44E9-B0DE-57922E35D8F6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1151BACC-9D52-411B-9E74-CCC749096DBF}"
+          SQLTask:SqlStatementSource="Select Email from  [DataLineageDb].[dbo].[Subscription]"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::rows" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{9322947A-1CCF-43D4-8188-3A9D0C7C25BF}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{00F96B72-46BE-4979-9119-893C88E9B4E0}"
+        DTS:ObjectName="{00F96B72-46BE-4979-9119-893C88E9B4E0}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::rows" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Send Mail Task"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{F0922D40-6FDD-4097-8DE4-50FD08326EED}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{30318E61-8544-4772-9DAF-94A58EC7C0BD}"
+              SendMailTask:From="Anubhav.Tiwari@in.bosch.com"
+              SendMailTask:To="AshwiniKumar.Singh@in.bosch.com"
+              SendMailTask:Subject="Data Lineage Audio Summary"
+              SendMailTask:MessageSourceType="FileConnection"
+              SendMailTask:MessageSource="Email.txt" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+              <SendMailTask:Attachments
+                SendMailTask:FileName="C:\Users\GNI4KOR\OneDrive - Robert Bosch GmbH\Documents\karthik data lineage\New folder\welcome.mp3" />
+            </SendMailTask:SendMailTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D4F65123-E740-47E1-90D6-5F06C773E47E}"
+          DTS:ObjectName="{D4F65123-E740-47E1-90D6-5F06C773E47E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::Emailid" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC9E2C0B-F684-48ED-BEDB-A83F05EF3C07}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="188.749997187406,19.8421056366363" />
+        <NodeLayout
+          Size="150.666666666667,42"
+          Id="Package\Foreach Loop Container\Send Mail Task"
+          TopLeft="33.5416637330004,7.41002492774444" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205.333333333334,105.333333333334"
+          Size="205.333333333334,148"
+          Id="Package\Foreach Loop Container"
+          TopLeft="163.124997569248,125.894739211761" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="269.27083071166,62.508772303303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.3859669084584"
+              Start="0,0"
+              End="0,55.8859669084584">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.8859669084584" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
